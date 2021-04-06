@@ -4,10 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./practicas.js"></script>
+    
+    <!-- icon -->
+    <link rel="shortcut icon" href="//www.google.com/favicon.ico">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"> 
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+
+    <!-- js -->
+    <!-- <script src="./practicas.js"></script> -->
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <main>
+        <img src="./assets/gglelogo.png" alt="google-logo">
+        <h1>Crear tu cuenta de Google</h1>
+        <h3>Ir a Gmail</h3>
+
+        <div class="inputs-containers">
+            
+            <div class="flex-container">
+                <label for="name">
+                    <input type="text" id="name" name="Nombre" required>
+                </label>
+                <label for="last-name">
+                    <input type="text" id="last-name" name="Apellido" required>
+                </label>
+            </div>
+
+            <div class="flex-container">
+                <label for="username">
+                    <input type="text" id="username" name="Usuario" required>
+                </label>
+                <span>
+                    Puedes usar letras, numeros y signos de puntuacion
+                </span>
+            </div>
+            
+            <div class="flex-container">
+                <label for="password">
+                    <input type="text" id="password" name="Contrasena" required>
+                </label>
+                <label for="confirmation">
+                    <input type="text" id="confirmation" name="Confirmacion" required>
+                </label>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
