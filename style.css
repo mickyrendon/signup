@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 400 12px Roboto,RobotoDraft,Helvetica,Arial,sans-serif
+
+}
+
+h1{
+    font-family: 'Google sans', 'Noto Sans Myanmar UI',arial,sans-serif;
+}
+h3{
+    font-family:  roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+}
+input{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+main{
+    margin: 0 auto;
+    padding: 10px;
+    width: 400px;
+    height: 800px;
+    background-color: red;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.inputs-containers{
+   border: 1px solid black;
+    
+}
+.flex-container{
+    padding: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}

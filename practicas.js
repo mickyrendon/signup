@@ -7,6 +7,7 @@ let password = prompt('ingrese una clave');
 function validator(){
     // validando que no el campo no esté vacio
     // variable de multiples valores
+    // CREAR EL MAQUETADO
     var inputRequires = document.getElementsByTagName('input').value;
 
     inputRequires == "" ?
