@@ -5,7 +5,9 @@
     font: 400 12px Roboto,RobotoDraft,Helvetica,Arial,sans-serif
 
 }
-
+body{
+    margin: 20% 0;
+}
 h1{
     font-family: 'Google sans', 'Noto Sans Myanmar UI',arial,sans-serif;
 }
@@ -13,27 +15,32 @@ h3{
     font-family:  roboto,'Noto Sans Myanmar UI',arial,sans-serif;
 }
 input{
-    margin-bottom: 20px;
-    font-size: 16px;
+    padding: 5px;
+    height: 30px;
+    margin: 10px 0;
+    font-size: 12px;
+    border-radius: 3px;
+    border:1px solid lightgray;
 }
 
 main{
     margin: 0 auto;
     padding: 10px;
     width: 400px;
-    height: 800px;
-    background-color: red;
+    height: auto;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: center;
+    border: 1px solid black;
 }
 .inputs-containers{
    border: 1px solid black;
-    
 }
 .flex-container{
+    margin: 5px;
     padding: 5px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    border: 1px solid tomato;
 }

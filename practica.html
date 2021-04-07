@@ -16,50 +16,59 @@
     
 
     <!-- js -->
-    <!-- <script src="./practicas.js"></script> -->
+    <script src="./practicas.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body onkeydown="onKeyDown(event)">
     <main>
         <img src="./assets/gglelogo.png" alt="google-logo">
         <h1>Crear tu cuenta de Google</h1>
         <h3>Ir a Gmail</h3>
 
         <div class="inputs-containers">
-            
-            <div class="flex-container">
-                <label for="name">
-                    <input type="text" id="name" name="Nombre" required>
-                </label>
-                <label for="last-name">
-                    <input type="text" id="last-name" name="Apellido" required>
-                </label>
-            </div>
+            <form action="" method="POST">
+                <div class="flex-container">
+                    <label for="name">
+                        <input type="text" id="name" class="name" name="Nombre"  required>
+                    </label>
+                    <label for="last-name">
+                        <input type="text" id="last-name" name="Apellido" required>
+                    </label>
+                </div>
 
-            <div class="flex-container">
-                <label for="username">
-                    <input type="text" id="username" name="Usuario" required>
-                </label>
-                <span>
-                    Puedes usar letras, numeros y signos de puntuacion
-                </span>
-            </div>
-            
-            <div class="flex-container">
-                <label for="password">
-                    <input type="text" id="password" name="Contrasena" required>
-                </label>
-                <label for="confirmation">
-                    <input type="text" id="confirmation" name="Confirmacion" required>
-                </label>
-            </div>
+                <div class="flex-container">
+                    <label for="username">
+                        <input type="text" id="username" name="Usuario" required>
+                    </label>
+                    <span>
+                        Puedes usar letras, numeros y signos de puntuacion
+                    </span>
+                </div>
+                
+                <div class="flex-container">
+                    <label for="password">
+                        <input type="text" id="password" name="Contrasena" required>
+                    </label>
+                    <label for="confirmation">
+                        <input type="text" id="confirmation" name="Confirmacion"   required>
+                    </label>
+                </div>
 
+                <div class="flex-container">
+                    <label for="submit">
+                        <input type="submit" id="submit" value="Siguiente">
+                    </label>
+                    <a href="" title="vinculo a login"> 
+                        Acceder a tu cuenta en su lugar
+                    </a>
+                </div>
+            </form>     
         </div>
     </main>
     <footer>
-
+        <input type="text" id="test" autocomplete="off" >
     </footer>
 </body>
 </html>
