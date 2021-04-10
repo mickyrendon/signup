@@ -24,32 +24,36 @@
 // var inputTags = document.getElementsByTagName('input');
 // inputTags.setAttribute.value = "autocomplete"
 
-function autocompletar(){
-    var elemento = document.querySelectorAll("input")
-    for(let i = 0; i < elemento.length; i++){
-        elemento[i].setAttribute("autocomplete", "off");
-    }
-    return elemento;
-}
+// function autocompletar(){
+//     var elemento = document.querySelector("form");
+//     // for(let i = 0; i < elemento.length; i++){
+//     //     elemento[i].setAttribute("autocomplete", "off");
+//     // }
+//     elemento.autocomplete = 'off';
+//     return elemento;
+// }
+// autocompletar()
 // autocomplete();
-elemento[i].style.backgroundColor = "red";
+// elemento[i].style.backgroundColor = "red";
+var inputs = '';
 
-let inputs = '';
+let inputsValue = inputs.document.getElementById('name').value;
+inputs = inputsValue;
+
+let inp = document.getElementById('name');       
 
 
 function onKeyDown(event) {
+
     const key = event.key; // "A", "1", "Enter", "ArrowRight".
     // var keysCode = event.which || event.keyCode;
-    inputs = document.getElementById('test').value;
-
     console.log("Presionada: " + key);
+    console.log("valor del input " + inputsValue);
 
-    if( key == 116 ){
-        // inputs.document.setAtribute.value('autocomplete', 'off')
-        // console.log('f5 presionada');
-        autocompletar()
-
+    if(key){
     }
+    // if( key == 116 ){
+    // }
     // if(keysCode >= 65 && keysCode <= 90){
     //      console.log(String.fromCharCode(keysCode));
     // }
