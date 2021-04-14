@@ -35,28 +35,26 @@
 // autocompletar()
 // autocomplete();
 // elemento[i].style.backgroundColor = "red";
-var inputs = '';
+var inputsValue = document.getElementById('name');
+let inputLastN  = document.getElementById('last-name').value;
 
-let inputsValue = inputs.document.getElementById('name').value;
-inputs = inputsValue;
-
-let inp = document.getElementById('name');       
+function value(){
+    return inputsValue.value;
+}
 
 
 function onKeyDown(event) {
-
-    const key = event.key; // "A", "1", "Enter", "ArrowRight".
-    // var keysCode = event.which || event.keyCode;
+// captura tecla por tecla
+    const key = event.key;
     console.log("Presionada: " + key);
-    console.log("valor del input " + inputsValue);
 
-    if(key){
+    // es camelcase
+    if(key == 'Enter'){
+        console.log('tecla Enter presionada');
+        return value();
     }
-    // if( key == 116 ){
-    // }
-    // if(keysCode >= 65 && keysCode <= 90){
-    //      console.log(String.fromCharCode(keysCode));
-    // }
+
+    
 };
 
 
