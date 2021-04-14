@@ -4,74 +4,29 @@
 // let minChar  = ' ';
 
 // funcion para capturar la tecla presionada
-// function keydownCather(event) {
-
-//     var keysCode = event.which || event.keyCode;
-
-//     console.log(`Presionada la tecla: ${keysCode}`);
-     
-//     if(keysCode === 13){
-//       console.log("Tecla ENTER");
-//     }
-
-//     if(keysCode >= 65 && keysCode <= 90){
-//       console.log(String.fromCharCode(keysCode));
-//     }
-
-     
-// }
-
-// var inputTags = document.getElementsByTagName('input');
-// inputTags.setAttribute.value = "autocomplete"
-
-// function autocompletar(){
-//     var elemento = document.querySelector("form");
-//     // for(let i = 0; i < elemento.length; i++){
-//     //     elemento[i].setAttribute("autocomplete", "off");
-//     // }
-//     elemento.autocomplete = 'off';
-//     return elemento;
-// }
-// autocompletar()
-// autocomplete();
-// elemento[i].style.backgroundColor = "red";
-var inputsValue = document.getElementById('name');
-let inputLastN  = document.getElementById('last-name').value;
+var inputsValue;
+let inputLastN  = '';
 
 function value(){
-    return inputsValue.value;
+    return inputsValue = document.getElementsByTagName('form')[0].value;
 }
 
 
 function onKeyDown(event) {
-// captura tecla por tecla
+    // captura tecla por tecla
     const key = event.key;
+
     console.log("Presionada: " + key);
 
     // es camelcase
     if(key == 'Enter'){
-        console.log('tecla Enter presionada');
-        return value();
+        return console.log(`tecla Enter presionada \n valor del input ${value()}`);
     }
-
-    
 };
 
+// 
 
-// function disableF5() { 
-//     if ((e.which || e.keyCode) == 116 || (e.which || 
-//         e.keyCode) == 82) e.preventDefault(); 
-
-//         console.log('btn f5');
-// };
-// disableF5()
-// newFunction();
-
-// function newFunction() {
-//     $(document).ready(() => {
-//         $(document).on("keydown", disableF5);
-//     });
-// }
+// 
 
 // function cleanForm(){
 //     var element = document.getElementsByTagName('input');
