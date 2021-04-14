@@ -8,6 +8,7 @@ var inputsValue;
 let inputLastN  = '';
 
 function value(){
+    // hacer que se vean los datos en un array
     return inputsValue = document.getElementsByTagName('form')[0].value;
 }
 
@@ -26,8 +27,6 @@ function onKeyDown(event) {
 
 // 
 
-// 
-
 // function cleanForm(){
 //     var element = document.getElementsByTagName('input');
     
@@ -35,28 +34,31 @@ function onKeyDown(event) {
 //     element.settAtribute('auto-complete', '')
     
 // }
-// function validator(){
-//     // event.preventDefault()
 
-//     // validando que el campo no esté vacio
-//     // variable de multiples valores
-//     // CREAR EL MAQUETADO
-//     var inputRequires = document.getElementsByTagName('input').value;
 
-//     inputRequires == "" ?
-//         alert(`ingrese el ${inputRequires}`) 
-//         : console.log('datos validos');
+// validador de valores  MEJORAR
+function validator(){
+    // event.preventDefault()
 
-//     // validando la cantidad de caracteres ingresados
-//     user.length <= 2 || password.length <= 2 ?(
-//             console.log('ingresa dos o mas caracteres po'), alert('ingrese bien los datos')
-//         ) : (
-//             console.log('datos correctos')
-//         );
+    // validando que el campo no esté vacio
+    // variable de multiples valores
+    // CREAR EL MAQUETADO
+    var inputRequires = document.getElementsByTagName('input').value;
+
+    inputRequires == "" ?
+        alert(`ingrese el ${inputRequires}`) 
+        : console.log('datos validos');
+
+    // validando la cantidad de caracteres ingresados
+    user.length <= 2 || password.length <= 2 ?(
+            console.log('ingresa dos o mas caracteres po'), alert('ingrese bien los datos')
+        ) : (
+            console.log('datos correctos')
+        );
 
 
 
 
 //     // if user is NaN / 
-// }
-// validator();
+}
+validator();
