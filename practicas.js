@@ -7,17 +7,39 @@
 let inputs = document.getElementsByTagName('INPUT');
 let inputLastN  = '';
 
+// obtiene su valor luego de invocar a 'arrayInputs()'
+let data1;
+let consoleMsg;
 const arrayInputs = () => {
     //guardando datos en un array
     let data = [];
 
-    var inputsValue = inputs;
+    let inputsValue = inputs;
+
     for (let i = 0; i < inputs.length; i++) {
         data.push(inputsValue[i].value);
+
+        
     }
     // return inputsValue;
+    data1 = data;
+    consoleMsg = console.table(data);
+
+    // funciona!... ahora hay que mostrar solo el valor que contenga un .length > 0 y desestimar el input de submit
+    for(i = 0; i < data1.length; i++){
+        data1[i].length == 0 ? console.log('igual que 0') :
+        console.log('mayor que 0');
+    }
+
     return data;
 }
+// invocacion de prueba, en html descomentar el submit para volverlo a la normalidad y que funcione el evento onclick de dicho boton
+   arrayInputs() 
+
+
+
+
+
 
 function onKeyDown(event) {
     // captura tecla por tecla
@@ -27,7 +49,8 @@ function onKeyDown(event) {
 
     // es camelcase
     if(key == 'Enter'){
-        return console.log(`tecla Enter presionada \n valor del input ${value()}`);
+                
+        return console.log('tecla Enter presionada');
     }
 };
 
@@ -79,8 +102,7 @@ function validator(){
 // validator();
 
 
-
+// submit onclik
 function sending(){
-    console.log('enviando data');
-    rest();
+    alert(`valores obtenidos del formulario \n ${arrayInputs()}`)
 }
