@@ -4,14 +4,20 @@
 // let minChar  = ' ';
 
 // funcion para capturar la tecla presionada
-var inputsValue;
+let inputs = document.getElementsByTagName('INPUT');
 let inputLastN  = '';
 
-function value(){
-    // hacer que se vean los datos en un array
-    return inputsValue = document.getElementsByTagName('form')[0].value;
-}
+const arrayInputs = () => {
+    //guardando datos en un array
+    let data = [];
 
+    var inputsValue = inputs;
+    for (let i = 0; i < inputs.length; i++) {
+        data.push(inputsValue[i].value);
+    }
+    // return inputsValue;
+    return data;
+}
 
 function onKeyDown(event) {
     // captura tecla por tecla
@@ -25,6 +31,15 @@ function onKeyDown(event) {
     }
 };
 
+
+// rest
+function rest(...argument){
+    let array1 = argument;
+
+    console.log(array1);
+}
+// encontrar como pasarle los datos del array de la variable 'array inputs' 
+let parametros = rest();
 // 
 
 // function cleanForm(){
@@ -61,4 +76,11 @@ function validator(){
 
 //     // if user is NaN / 
 }
-validator();
+// validator();
+
+
+
+function sending(){
+    console.log('enviando data');
+    rest();
+}
