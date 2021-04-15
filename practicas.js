@@ -10,6 +10,7 @@ let inputLastN  = '';
 // obtiene su valor luego de invocar a 'arrayInputs()'
 let data1;
 let consoleMsg;
+let lastValue = [];
 const arrayInputs = () => {
     //guardando datos en un array
     let data = [];
@@ -17,19 +18,23 @@ const arrayInputs = () => {
     let inputsValue = inputs;
 
     for (let i = 0; i < inputs.length; i++) {
-        data.push(inputsValue[i].value);
+        // definir si trim es necesario para el valor de los inputs o directamente hacer una validacion para que no se acepten caracteres con espacio dentro del input
+        data.push(inputsValue[i].value.trim());
 
-        
     }
     // return inputsValue;
     data1 = data;
-    consoleMsg = console.table(data);
 
-    // funciona!... ahora hay que mostrar solo el valor que contenga un .length > 0 y desestimar el input de submit
+    // funciona!...desestimar el input de submit
+    
     for(i = 0; i < data1.length; i++){
         data1[i].length == 0 ? console.log('igual que 0') :
-        console.log('mayor que 0');
+        (lastValue.push(data1[i]),console.log('mayor que 0'));
     }
+    // mostrando los resultados por consola
+    console.log('valores de los inputs ' + lastValue);
+    // console.log(`valores de los inputs ${lastValue}`);
+    consoleMsg = console.table(lastValue);
 
     return data;
 }
@@ -42,9 +47,10 @@ const arrayInputs = () => {
 
 
 function onKeyDown(event) {
-    // captura tecla por tecla
+    // captura el nombre de cada tecla
     const key = event.key;
-
+    //captura el codigo de cada tecla
+    var codigo = event.which || event.keyCode;
     console.log("Presionada: " + key);
 
     // es camelcase
@@ -52,6 +58,10 @@ function onKeyDown(event) {
                 
         return console.log('tecla Enter presionada');
     }
+
+    //capturando el valor de 'spacebar', despues de mostrar el alert limpiar el input
+    codigo == 32 ? (alert('prohibido ingresar espacios en blanco'), ) :
+    console.log('teclas correctas');
 };
 
 
