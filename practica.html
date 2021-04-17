@@ -30,37 +30,40 @@
         <div class="inputs-containers">
                                     <!--url del servidor  -->
             <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off">
-                <div class="flex-container">
-                    <label for="name">
-                        <input type="text" id="name" class="name" name="Nombre"  required>
-                    </label>
-                    <label for="last-name">
-                        <input type="text" id="last-name" name="Apellido" required>
-                    </label>
+                <!-- container para separar los inputs del submit y que permita a la variable de js solo seleccionar los hijos de este container -->
+                <div class="inputs-container" id="inputs-container">    
+                    <div class="flex-container">
+                        <label for="name">
+                            <input type="text" id="name" class="inputs-txt" name="Nombre"  required>
+                        </label>
+                        <label for="last-name">
+                            <input type="text" id="last-name" class="inputs-txt" name="Apellido" required>
+                        </label>
+                    </div>
+
+                    <div class="flex-container">
+                        <label for="username">
+                            <input type="text" id="username" class="inputs-txt" name="Usuario" required>
+                        </label>
+                        <span>
+                            Puedes usar letras, numeros y signos de puntuacion
+                        </span>
+                    </div>
+                    
+                    <div class="flex-container">
+                        <label for="password">
+                            <input type="text" id="password" class="inputs-txt" name="Contrasena" required>
+                        </label>
+                        <label for="confirmation">
+                            <input type="text" id="confirmation" class="inputs-txt" name="Confirmacion"   required>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="flex-container">
-                    <label for="username">
-                        <input type="text" id="username" name="Usuario" required>
-                    </label>
-                    <span>
-                        Puedes usar letras, numeros y signos de puntuacion
-                    </span>
-                </div>
-                
-                <div class="flex-container">
-                    <label for="password">
-                        <input type="text" id="password" name="Contrasena" required>
-                    </label>
-                    <label for="confirmation">
-                        <input type="text" id="confirmation" name="Confirmacion"   required>
-                    </label>
-                </div>
-
-                <div class="flex-container">
-                    <!-- <label for="submit">
+                    <label for="submit">
                         <input type="submit" id="submit" value="Siguiente" onclick="sending()">
-                    </label> -->
+                    </label>
                     <a href="" title="vinculo a login"> 
                         Acceder a tu cuenta en su lugar
                     </a>

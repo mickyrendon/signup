@@ -4,7 +4,9 @@
 // let minChar  = ' ';
 
 // variables globales
-let inputs = document.getElementsByTagName('INPUT');
+
+// lograr que pueda seleccionar los inputs con esta clase
+let inputs = document.getElementsByClassName('.inputs-txt');
 
 // obtiene su valor luego de invocar a 'arrayInputs()'
 let data1;
@@ -30,6 +32,22 @@ function onKeyDown(event) {
     codigo == 32 ? (alert('prohibido ingresar espacios en blanco'), cleaner() ):
     console.log('teclas correctas');
 };
+
+// limpia el input que tiene focus en ese momento despues de clickear el spacebar...
+let inputLastN  = '';
+
+function cleaner(){
+    // falla la primera vez, despues funciona correctamente
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("focus", function() {
+        // Guardamos la ID del elemento al que hacemos 'focus'
+        inputLastN = this;
+        console.log('elemento focus');
+        });
+    };
+
+    return inputLastN.value = ''
+}
 
 // funcion para agregar los valores de los inputs a un array
 const arrayInputs = () => {
@@ -59,25 +77,7 @@ function arrayLength(){
     }
 }
 
-
-
 // VALIDADORES
-
-// limpia el input que tiene focus en ese momento despues de clickear el spacebar...
-let inputLastN  = '';
-
-function cleaner(){
-    // falla la primera vez, despues funciona correctamente
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener("focus", function() {
-        // Guardamos la ID del elemento al que hacemos 'focus'
-        inputLastN = this;
-        console.log('elemento focus');
-        });
-    };
-
-    return inputLastN.value = ''
-}
 
 // validador de valores  MEJORAR
 function validator(){
