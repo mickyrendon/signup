@@ -5,8 +5,8 @@
 
 // variables globales
 
-// lograr que pueda seleccionar los inputs con esta clase
-let inputs = document.getElementsByClassName('.inputs-txt');
+// recordar que para acceder a la clase no se necesita el punto
+let inputs = document.getElementsByClassName('inputs-txt');
 
 // obtiene su valor luego de invocar a 'arrayInputs()'
 let data1;
