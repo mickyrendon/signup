@@ -71,8 +71,8 @@ const arrayInputs = () => {
     }
 
     inptsRecorrido.length <= 2 ?(
-        console.log('ingresa dos o mas caracteres po'), alert('ingrese bien los datos culiao')
-        ) : (
+        console.log('ingresa dos o mas caracteres po'), alert('ingrese bien los datos culiao'),
+        cleaner()) : (
             console.log('bien hecho, ingresaste mas de dos caracteres')
         );
 
