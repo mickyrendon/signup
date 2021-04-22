@@ -6,6 +6,21 @@ let data1;
 let consoleMsg;
 let lastValue = [];
 
+//obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de cada input 
+function gettingVal(){
+    let names = [];
+
+    for(i=0; i < inputs.length; i++){
+        names.push(inputs[i].name);
+    }
+
+// agregando el value a los inputs
+    for(i=0; i<names.length; i++){
+        inputs[i].value = names[i];
+    }
+    return names;
+}
+gettingVal();
 
 // capturar las teclas presionadas
 function onKeyDown(event) {
@@ -65,6 +80,8 @@ const arrayInputs = () => {
     return data1;
 }
 
+
+// MEJORAR! no 
 function arrayLength(){
     // ciclo para agregar al array(lastValue) los elementos del array(data1) que su length es mayor que 0 o que no esten vacios.
     for(i = 0; i < data1.length; i++){
@@ -97,6 +114,9 @@ function validator(){
         cleaner()) : (
             console.log('bien hecho, ingresaste mas de dos caracteres')
         );
+
+    
+
 }
 
 
@@ -109,5 +129,5 @@ function sending(){
     console.log('valores de los inputs ' + lastValue));
 
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
-    alert(`valores obtenidos del formulario \n ${arrayInputs()}`)
+   console.table(`valores obtenidos del formulario \n ${arrayInputs()}`)
 };
