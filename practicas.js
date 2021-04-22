@@ -7,7 +7,7 @@ let consoleMsg;
 let lastValue = [];
 
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de cada input 
-function gettingVal(){
+window.onload = function gettingVal(){
     let names = [];
 
     for(i=0; i < inputs.length; i++){
@@ -20,7 +20,6 @@ function gettingVal(){
     }
     return names;
 }
-gettingVal();
 
 // capturar las teclas presionadas
 function onKeyDown(event) {
@@ -106,6 +105,8 @@ function validator(){
     /* inputRequires == "" ?
         alert(`ingrese el ${inputRequires}`) 
         : console.log('datos validos'); */
+
+// crear funcion para solo datos de la A-Z
 
     // validando la cantidad de caracteres ingresados en los dos primeros inputs
     data1[0].length <= 2 || data1[1].length <= 2 ?(
