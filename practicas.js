@@ -6,6 +6,9 @@ let data1;
 let consoleMsg;
 let lastValue = [];
 
+// validador de caracteres alfabeticos //  optimizar el codigo para las validaciones
+const alfa = /^[a-zA-Z]+$/
+
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de cada input 
 window.onload = function gettingVal(){
     let names = [];
@@ -107,6 +110,11 @@ function validator(){
         : console.log('datos validos'); */
 
 // crear funcion para solo datos de la A-Z
+
+    data1[0] !== alfa || data1[1] !== alfa ?(
+        alert('solo letras de la a-z minusculas o mayusculas'), cleaner()) : (
+            console.log('valores alfabeticos bien aceptados')
+        );
 
     // validando la cantidad de caracteres ingresados en los dos primeros inputs
     data1[0].length <= 2 || data1[1].length <= 2 ?(
