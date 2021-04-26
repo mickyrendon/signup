@@ -19,7 +19,7 @@ window.onload = function gettingVal(){
 
 // agregando el value a los inputs
     for(i=0; i<names.length; i++){
-        inputs[i].value = names[i];
+        inputs[i].placeholder = names[i];
     }
     return names;
 }
@@ -83,7 +83,7 @@ const arrayInputs = () => {
 }
 
 
-// MEJORAR! no 
+// MEJORAR! no limpia el array despues de mostrar un alert o mensaje de error...
 function arrayLength(){
     // ciclo para agregar al array(lastValue) los elementos del array(data1) que su length es mayor que 0 o que no esten vacios.
     for(i = 0; i < data1.length; i++){
