@@ -6,8 +6,11 @@ let data1;
 let consoleMsg;
 let lastValue = [];
 
+// validador booleano
+let isValid = false;
+
 // validador de caracteres alfabeticos //  optimizar el codigo para las validaciones
-const alfa = /^[a-zA-Z]+$/
+const alfa = new RegExp('^[A-Z]+$', 'i');
 
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de cada input 
 window.onload = function gettingVal(){
@@ -95,39 +98,42 @@ function arrayLength(){
 // VALIDADORES
 
 function validator(){
-    // event.preventDefault()
-
-    // validando que el campo no esté vacio
-    
-    // if(data1[i].length == 0){
-        //inputs.styleClass = 'nombre de la clase con esos estilos'
-    // }
-
-    // var inputRequires = inputs.value;
-
-    /* inputRequires == "" ?
-        alert(`ingrese el ${inputRequires}`) 
-        : console.log('datos validos'); */
-
 // crear funcion para solo datos de la A-Z
+    let dataName = data1[0];
+    let dataLN = data1[1];
 
-    data1[0] !== alfa || data1[1] !== alfa ?(
-        alert('solo letras de la a-z minusculas o mayusculas'), cleaner()) : (
-            console.log('valores alfabeticos bien aceptados')
-        );
+// aplicarlo al validador de gmail
+    if(!dataName || !dataLN){
+        isValid = false;
+        console.log('nombre o apellido incorrecto');
+    }else{
+        // aplicar css en la caja cuando sea verdadero
+        //inputs.styleClass = 'nombre dela clase con esos estilos'
 
-    // validando la cantidad de caracteres ingresados en los dos primeros inputs
-    data1[0].length <= 2 || data1[1].length <= 2 ?(
-        // en vez de un alert aplicar estilos a los inputs y agregar un span como mensaje
-        alert('ingresa dos o mas caracteres'),
-        cleaner()) : (
-            console.log('bien hecho, ingresaste mas de dos caracteres')
-        );
+        console.log('data1 es true');
+        // validando la cantidad de caracteres ingresados en los dos primeros inputs
+        if(dataName.length <= 2 || dataLN.length <= 2){
+            // en vez de un alert aplicar estilos a los inputs y agregar un span como mensaje
+            isvalid = false;
+            alert('ingresa dos o mas caracteres');
+            // no lo ejecuta
+            cleaner();
+        }else{
+            console.log('bien hecho, ingresaste mas de dos caracteres');
 
-    
+            // no esta funcionando 'alfa.test no es una funcion'
+            if(!alfa.test(dataName) || !alfa.test1(dataLN)){
+                isValid = false;
+                alert('solo letras de la a-z minusculas o mayusculas');
+                cleaner();
+            }else{
+                isValid = true;
+                console.log('valores alfabeticos correcctos y aceptados')
+            }
 
+        } 
+    }
 }
-
 
 // submit onclik
 function sending(){
