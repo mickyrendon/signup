@@ -51,9 +51,9 @@ function onKeyDown(event) {
 // limpia el input que tiene focus en ese momento despues de clickear el spacebar...
 let inputLastN  = '';
 
-// verificar que funcione
+// verificar que funcione, falla la primera vez, despues funciona correctamente
 function cleaner(){
-    // falla la primera vez, despues funciona correctamente
+    
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener("focus", function() {
         // Guardamos la ID del elemento al que hacemos 'focus'
@@ -98,14 +98,15 @@ function arrayLength(){
 // VALIDADORES
 
 function validator(){
-// crear funcion para solo datos de la A-Z
-    let dataName = data1[0];
-    let dataLN = data1[1];
+    let dataName  = data1[0];
+    let dataLN    = data1[1];
+    // validar el gmail y las contrasenas
+    let dataEmail = data1[3];
 
 // aplicarlo al validador de gmail
     if(!dataName || !dataLN){
         isValid = false;
-        console.log('nombre o apellido incorrecto');
+        alert('nombre o apellido incorrecto');
     }else{
         // aplicar css en la caja cuando sea verdadero
         //inputs.styleClass = 'nombre dela clase con esos estilos'
@@ -122,16 +123,26 @@ function validator(){
             console.log('bien hecho, ingresaste mas de dos caracteres');
 
             // no esta funcionando 'alfa.test no es una funcion'
-            if(!alfa.test(dataName) || !alfa.test1(dataLN)){
+            if(!alfa.test(dataName) || !alfa.test(dataLN)){
                 isValid = false;
                 alert('solo letras de la a-z minusculas o mayusculas');
                 cleaner();
             }else{
                 isValid = true;
-                console.log('valores alfabeticos correcctos y aceptados')
+                console.log('valores alfabeticos correctos y aceptados')
             }
 
         } 
+    }
+    
+}
+// verificando si el formulario esta vacio
+function verifier(){
+    const checker = validator();
+    if(!checker){
+        alert('por favor complete el formulario');
+    }else{
+        console.log('puede continuar llenando el formulario');
     }
 }
 
@@ -139,10 +150,10 @@ function validator(){
 function sending(){
     // validator();
         
-    lastValue.length == 0 ? alert('por favor complete el formulario'):
+    /* lastValue.length == 0 ? alert('por favor complete el formulario'):
     (consoleMsg = console.table(lastValue),
-    console.log('valores de los inputs ' + lastValue));
-
+    console.log('valores de los inputs ' + lastValue)); */
+    verifier()
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
    console.table(`valores obtenidos del formulario \n ${arrayInputs()}`)
 };
