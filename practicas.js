@@ -23,6 +23,9 @@ window.onload = function gettingVal(){
 // agregando el value a los inputs
     for(i=0; i<names.length; i++){
         inputs[i].placeholder = names[i];
+        if(inputs[2]){
+            inputs[2].placeholder = `${'@'}${names[2]}`
+        }
     }
     return names;
 }
@@ -98,15 +101,20 @@ function arrayLength(){
 // VALIDADORES
 
 function validator(){
-    let dataName  = data1[0];
-    let dataLN    = data1[1];
-    // validar el gmail y las contrasenas
-    let dataEmail = data1[3];
+    // nombre y apellido
+    let dataName   = data1[0];
+    let dataLN     = data1[1];
+    // contrasena
+    let psw        = data1[3];
+    let pswConfirm = data1[4];
+    // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en el servidor
+    // let dataEmail = data1[3];
 
 // aplicarlo al validador de gmail
     if(!dataName || !dataLN){
         isValid = false;
-        alert('nombre o apellido incorrecto');
+        // aplicar ccs en un span para mostrar lo que hay en el console
+        console.log('nombre o apellido incorrecto');
     }else{
         // aplicar css en la caja cuando sea verdadero
         //inputs.styleClass = 'nombre dela clase con esos estilos'
@@ -122,24 +130,34 @@ function validator(){
         }else{
             console.log('bien hecho, ingresaste mas de dos caracteres');
 
-            // no esta funcionando 'alfa.test no es una funcion'
             if(!alfa.test(dataName) || !alfa.test(dataLN)){
                 isValid = false;
                 alert('solo letras de la a-z minusculas o mayusculas');
                 cleaner();
             }else{
+                console.log('validado correctamente hasta el input usuario');
+
+                // validador de contrasena, validar para que la confirmacion se igual a la contrasena
+                if(psw.length < 8 || pswConfirm.length < 8){
+                    isValid = false;
+                    alert('ingrese mas de 7 caracteres');
+                    cleaner();
+                }else{
                 isValid = true;
                 console.log('valores alfabeticos correctos y aceptados')
             }
+            }
+            
+            
 
         } 
     }
     
 }
-// verificando si el formulario esta vacio
+// verificando si el formulario esta vacio, no funcion, optimizarlo
 function verifier(){
-    const checker = validator();
-    if(!checker){
+    const checker = lastValue;
+    if(checker.length == 0){
         alert('por favor complete el formulario');
     }else{
         console.log('puede continuar llenando el formulario');
@@ -149,11 +167,13 @@ function verifier(){
 // submit onclik
 function sending(){
     // validator();
-        
-    /* lastValue.length == 0 ? alert('por favor complete el formulario'):
+    // codigo para verificar el formulario vacio, usar si no hay caso con la funcion verifier
+/*         
+    lastValue.length == 0 ? alert('por favor complete el formulario'):
     (consoleMsg = console.table(lastValue),
     console.log('valores de los inputs ' + lastValue)); */
-    verifier()
+    // verifier()
+    // validator()
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
    console.table(`valores obtenidos del formulario \n ${arrayInputs()}`)
 };
