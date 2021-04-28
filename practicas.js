@@ -9,7 +9,7 @@ let lastValue = [];
 // validador booleano
 let isValid = false;
 
-// validador de caracteres alfabeticos //  optimizar el codigo para las validaciones
+// validador de caracteres alfabeticos
 const alfa = new RegExp('^[A-Z]+$', 'i');
 
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de cada input 
@@ -107,7 +107,7 @@ function validator(){
     // contrasena
     let psw        = data1[3];
     let pswConfirm = data1[4];
-    // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en el servidor
+    // el input 'email' viene con su validacion incluida ademas del atributo required no esta aceptando los valores que le estoy ingresando ahora y lo mas seguro es verificarlo en el servidor// 
     // let dataEmail = data1[3];
 
 // aplicarlo al validador de gmail
@@ -137,17 +137,26 @@ function validator(){
             }else{
                 console.log('validado correctamente hasta el input usuario');
 
-                // validador de contrasena, validar para que la confirmacion se igual a la contrasena
+                // validador de contrasena
                 if(psw.length < 8 || pswConfirm.length < 8){
                     isValid = false;
                     alert('ingrese mas de 7 caracteres');
                     cleaner();
                 }else{
-                isValid = true;
-                console.log('valores alfabeticos correctos y aceptados')
-            }
-            }
-            
+                    console.log('validando correctamente hasta contrasena.length');
+                    
+                    if(psw !== pswConfirm){
+                        isvalid = false;
+                        console.log('la confirmacion es incorrecta');
+                        console.log(`${psw} ${pswConfirm} ' no son correctos' `);
+                    }else{
+                        isValid = true;
+                        console.log('valores alfabeticos correctos y aceptados')
+                    }
+                    
+                    }
+                }
+                
             
 
         } 
