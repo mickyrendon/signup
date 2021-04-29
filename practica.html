@@ -43,8 +43,15 @@
 
                     <div class="flex-container">
                         <label for="username">
-                            <input type="email" id="username" class="inputs-txt" name="Usuario" required>
+                            <input type="email" id="username" class="inputs-txt" name="Usuario" required list="suggest">
                         </label>
+                        <datalist id="suggest">
+                            <option value="usuario@hotmail.com"></option>
+                            <option value="otrousuario@gmail.com"></option>
+                            <option value="esteusuario@yahoo.com"></option>
+                            <option value="proximousuario@outlook.com"></option>
+                            <option value="ultimousuario@gmail.com"></option>
+                        </datalist>
                         <span>
                             Puedes usar letras, numeros y signos de puntuacion
                         </span>
