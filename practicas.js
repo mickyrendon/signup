@@ -16,8 +16,17 @@ const alfa   = new RegExp('^[A-Z]+$', 'i');
 let inputLastN  = '';
 
 
+//funciones invocadas despues de cargado el html
+window.onload = function (){
+    // variable para el checkbox
+    let checkbox = document.getElementById('checkbox');
+        checkbox.addEventListener('change', checkboxCheck, false);
+    
+    gettingVal();
+}
+
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de los input 
-window.onload = function gettingVal(){
+function gettingVal(){
 
     let names = [];
 
@@ -187,7 +196,7 @@ function verifier(){
     const checker = lastValue;
     
     if(checker.length == 0){
-    // fijarme si ponerle un span con estilos o dejarlo asi
+        // fijarme si ponerle un span con estilos o dejarlo asi
         alert('por favor complete el formulario');
 
     }else{
@@ -195,6 +204,25 @@ function verifier(){
         console.log('puede continuar llenando el formulario');
         
     }
+}
+
+// checkbox// si funciona pero en el navegador me tira error
+function checkboxCheck(){
+    // inputs de contrasenas // son las mismas variables de la funcion validator
+    let psw        = inputs[3];
+    let pswConfirm = inputs[4];
+
+    if(checkbox.checked){
+
+        psw.type        = 'text'
+        pswConfirm.type = 'text'
+
+    }else{
+        
+        psw.type        = 'password'
+        pswConfirm.type = 'password'
+        
+    }    
 }
 
 // submit onclik
