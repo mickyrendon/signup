@@ -60,21 +60,25 @@ function onKeyDown(event) {
     if(codigo == 32){
         alert('prohibido ingresar espacios en blanco');
         // no funciona a la primera vez, corregir
-        cleaner(); 
+        // cleaner(); 
     };
 };
 
 //limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios
-function cleaner(){
-   
-// let elements = inputs;
-    for (let i = 0; i < inputs.length; ++i) {
-        inputs[i].addEventListener("focus", function() {
+function getFocused(){
+    let elements = inputs;
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("focus", function() {
         // Guardamos la ID del elemento al que hacemos 'focus'
         inputLastN = this;
         console.log('elemento focus');     
+        elements[i].className = 'focus';
         });
     };
+}
+function cleaner(){
+   
+    getFocused()
     inputLastN.value = ''
 }
 

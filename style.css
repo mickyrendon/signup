@@ -56,3 +56,9 @@ main{
 #checkbox{
     margin: 0;
 }
+
+
+/* focus style */
+.focus:focus{
+    border: 2px solid tomato;
+}
