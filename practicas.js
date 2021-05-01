@@ -22,6 +22,7 @@ window.onload = function (){
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
+    getFocused();
     gettingVal();
 }
 
@@ -43,7 +44,6 @@ function gettingVal(){
     return names;
 }
 
-
 // capturar las teclas presionadas
 function onKeyDown(event) {
     // captura el nombre de cada tecla
@@ -64,25 +64,40 @@ function onKeyDown(event) {
         cleaner(); 
     };
 };
+function multiply(a,b){
+    // a * b;
+    console.log(a*b);
 
-//limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona correctamente
-function cleaner(){
+}
+multiply(5,8)
+
+// 
+//limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios
+function getFocused(){
+    let elements = inputs;
     
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener("focus", function() {
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener("focus", function() {
         // Guardamos la ID del elemento al que hacemos 'focus'
         inputLastN = this;
-        console.log('elemento focus');     
+        inputLastN.className = 'focus';
+        console.log('elemento focus');    
+
         });
     };
-
-    return inputLastN.value = ''
+    return elements;
 }
 
-// funcion para agregar los valores de los inputs a un array// la idea es tenerlos para mostrarlos por si se necesita
+function cleaner(){
+   
+    inputLastN.value = '';     
+}
+
+// funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
 const arrayInputs = () => {
-    //guardando datos en un array
+    //guardando datos en un array la idea es tenerlos para mostrarlos por si se necesita
     let data        = [];
+
     let inputsValue = inputs;
 
     //pusheando el valor de cada elemento del formulario
@@ -92,23 +107,11 @@ const arrayInputs = () => {
     
     }
     data1 = data;
-    arrayLength();
+    // arrayLength();
     validator();
 
     return data1;
 }
-
-
-// MEJORAR! no limpia el array despues de mostrar un alert o mensaje de error...la idea es que despues de mostrar un mensaje de error o alert el input al que se le esta haciendo focus se limpie y a la vez se limpie ese mismo valor en el array
-function arrayLength(){
-    // ciclo para agregar al array(lastValue) los elementos del array(data1) que su length es mayor que 0 o que no esten vacios.
-    for(i = 0; i < data1.length; i++){
-        // operador ternario, lo usé a proposito para ponerlo en practica, ya que por buenas practicas es mejor usar un solo estilo de condicionales
-        data1[i].length == 0 ? console.log('valores vacios') :
-        (lastValue.push(data1[i]), console.log(`valor ${lastValue[i]}`));
-    }
-}
-
 
 // validaciones de campos
 function validator(){
@@ -181,6 +184,7 @@ function validator(){
 
                         isValid = true;
                         console.log('valores alfabeticos correctos y aceptados')
+
                     }
                     
                     }
@@ -188,22 +192,6 @@ function validator(){
         } 
     }
     
-}
-
-// verificando si el formulario esta vacio, no funcion, optimizarlo Arreglarlo, mandarlo a la funcion validator
-function verifier(){
-
-    const checker = lastValue;
-    
-    if(checker.length == 0){
-        // fijarme si ponerle un span con estilos o dejarlo asi
-        alert('por favor complete el formulario');
-
-    }else{
-        
-        console.log('puede continuar llenando el formulario');
-        
-    }
 }
 
 // checkbox// si funciona pero en el navegador me tira error
@@ -221,18 +209,32 @@ function checkboxCheck(){
         
         psw.type        = 'password'
         pswConfirm.type = 'password'
-        
+
     }    
 }
 
 // submit onclik
 function sending(){
-    // codigo para verificar el formulario vacio, usar si no hay caso con la funcion verifier
-        
-  /*   lastValue.length == 0 ? alert('por favor complete el formulario'):
-    (consoleMsg = console.table(lastValue),
-    console.log('valores de los inputs ' + lastValue)); */
-    verifier()
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
-   console.table(`valores obtenidos del formulario \n ${arrayInputs()}`)
+    arrayInputs();
+    // validator()
+    /* 
+    if(validator()){
+    } */
+    // return console.table(`'valores obtenidos del formulario' \n ${lastValue}`)
+    return console.table(lastValue)
 };
+
+
+
+//FUNCION EXTRA!
+
+// MEJORAR! no limpia el array despues de mostrar un alert o mensaje de error...la idea es que despues de mostrar un mensaje de error o alert el input al que se le esta haciendo focus se limpie y a la vez se limpie ese mismo valor en el array
+function arrayLength(){
+    // ciclo para agregar al array(lastValue) los elementos del array(data1) que su length es mayor que 0 o que no esten vacios.
+    for(i = 0; i < data1.length; i++){
+        // operador ternario, lo usé a proposito para ponerlo en practica, ya que por buenas practicas es mejor usar un solo estilo de condicionales
+        data1[i].length == 0 ? console.log('valores vacios') :
+        (lastValue.push(data1[i]), console.log(`valor ${lastValue[i]}`));
+    }
+}

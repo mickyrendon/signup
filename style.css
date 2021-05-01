@@ -56,3 +56,16 @@ main{
 #checkbox{
     margin: 0;
 }
+
+
+/* focus style */
+.focus:focus{
+    border: 2px solid steelblue;
+    transition: outline-offset .25s ease;
+    /* outline-offset: 5px; */
+}
+.focus-alert:focus{
+    border: 2px solid tomato;
+    transition: outline-offset .25s ease;
+    /* outline-offset: 5px; */
+}
