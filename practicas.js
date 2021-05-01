@@ -22,6 +22,7 @@ window.onload = function (){
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
+    getFocused();
     gettingVal();
 }
 
@@ -60,26 +61,36 @@ function onKeyDown(event) {
     if(codigo == 32){
         alert('prohibido ingresar espacios en blanco');
         // no funciona a la primera vez, corregir
-        // cleaner(); 
+        cleaner(); 
     };
 };
+function multiply(a,b){
+    // a * b;
+    console.log(a*b);
 
+}
+multiply(5,8)
+
+// 
 //limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios
 function getFocused(){
     let elements = inputs;
+    
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener("focus", function() {
         // Guardamos la ID del elemento al que hacemos 'focus'
         inputLastN = this;
-        console.log('elemento focus');     
-        elements[i].className = 'focus';
+        inputLastN.className = 'focus';
+        console.log('elemento focus');    
+
         });
     };
+    return elements;
 }
+
 function cleaner(){
    
-    getFocused()
-    inputLastN.value = ''
+    inputLastN.value = '';     
 }
 
 // funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
