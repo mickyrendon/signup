@@ -1,5 +1,6 @@
 // recordar que para acceder a la clase no se necesita el punto
 let inputs = document.getElementsByClassName('inputs-txt');
+let arrayLoop = [];
 
 // estas variables obtienen su valor luego de invocar a la funcion arrayInputs()
 let data1;
@@ -15,16 +16,40 @@ const alfa   = new RegExp('^[A-Z]+$', 'i');
 // limpia el input que tiene focus en ese momento despues de clickear el spacebar...
 let inputLastN  = '';
 
-
 //funciones invocadas despues de cargado el html
 window.onload = function (){
     // variable para el checkbox
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
-    getFocused();
+    loop()
     gettingVal();
+    
 }
+
+//ciclo que obtiene cada elemento input y lo usa en la funcion checkbox
+function loop(){
+
+    for(i=0; i < inputs.length; i++){
+        
+        arrayLoop.push(inputs[i]);
+
+    }
+
+    for (i = 0; i < arrayLoop.length; i++) {
+
+        arrayLoop[i].addEventListener("focus", function() {
+        // Guardamos la ID del elemento al que hacemos 'focus'
+        inputLastN = this;
+        inputLastN.className = 'focus';
+      
+        });
+        
+    };
+    return arrayLoop;
+}
+
+
 
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de los input 
 function gettingVal(){
@@ -50,7 +75,6 @@ function onKeyDown(event) {
     const key = event.key;
     //captura el codigo de cada tecla
     var codigo = event.which || event.keyCode;
-    console.log(`'Presionada: ' ${key}`);
 
     //la definicion del key (Enter) es camelcase
     if(key == 'Enter'){
@@ -62,32 +86,13 @@ function onKeyDown(event) {
         alert('prohibido ingresar espacios en blanco');
         // no funciona a la primera vez, corregir
         cleaner(); 
-    };
+    }
+
+    return console.log(`'Presionada: ' ${key}`);
 };
-function multiply(a,b){
-    // a * b;
-    console.log(a*b);
 
-}
-multiply(5,8)
 
-// 
-//limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios
-function getFocused(){
-    let elements = inputs;
-    
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].addEventListener("focus", function() {
-        // Guardamos la ID del elemento al que hacemos 'focus'
-        inputLastN = this;
-        inputLastN.className = 'focus';
-        console.log('elemento focus');    
-
-        });
-    };
-    return elements;
-}
-
+//limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios. pero ese espacio me complica la vida en los inputs de password...
 function cleaner(){
    
     inputLastN.value = '';     
@@ -194,23 +199,28 @@ function validator(){
     
 }
 
-// checkbox// si funciona pero en el navegador me tira error
+// checkbox
 function checkboxCheck(){
     // inputs de contrasenas // son las mismas variables de la funcion validator
-    let psw        = inputs[3];
-    let pswConfirm = inputs[4];
+    // toma los valores del array loop de la funcion
+    let psw        = arrayLoop[3];
+    let pswConfirm = arrayLoop[4];
+
+    // let psw = loop;
+    // let pswConfirm = loop;
 
     if(checkbox.checked){
 
-        psw.type        = 'text'
-        pswConfirm.type = 'text'
+        psw.type        = 'text';
+        pswConfirm.type = 'text';
 
     }else{
         
-        psw.type        = 'password'
-        pswConfirm.type = 'password'
+        psw.type        = 'password';
+        pswConfirm.type = 'password';
 
     }    
+    return this;
 }
 
 // submit onclik
