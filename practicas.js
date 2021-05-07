@@ -66,6 +66,7 @@ function gettingVal(){
             inputs[2].placeholder = `${'@'}${names[2]}`
         }
     }
+//   usar un 'then' para despues de que se use el cleaner en un input, volver a llamar esta funcion para que traiga los placeholder de cada elemento
     return names;
 }
 
@@ -94,8 +95,9 @@ function onKeyDown(event) {
 
 //limpia el input que tenga autofocus// verificar que funcione, falla la primera vez, despues funciona casi correctamente, porque al limpiar el campo deja el puntero con un spacio, pero no importta porque la funcion arrayinputs toma los valores sin espacios. pero ese espacio me complica la vida en los inputs de password...
 function cleaner(){
-   
-    inputLastN.value = '';     
+//    checkear que puede ser el problema de porque al limpiar el campo me queda un espacio en blanco
+    inputLastN.value = ''; 
+    
 }
 
 // funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
