@@ -1,20 +1,21 @@
 // recordar que para acceder a la clase no se necesita el punto
-let inputs = document.getElementsByClassName('inputs-txt');
-let arrayLoop = [];
+var inputs = document.getElementsByClassName('inputs-txt');
+var arrayLoop = [];
+var data = [];
 
 // estas variables obtienen su valor luego de invocar a la funcion arrayInputs()
-let data1;
-let consoleMsg;
-let lastValue = [];
+var data1;
+var consoleMsg;
+var lastValue = [];
 
 // validador booleano para la funcion validator()
-let isValid  = false;
+var isValid  = false;
 // validador de caracteres alfabeticos (pattern)
 const alfa   = new RegExp('^[A-Z]+$', 'i');
 
 // variable para la funcion clear()
 // limpia el input que tiene focus en ese momento despues de clickear el spacebar...
-let inputLastN  = '';
+var inputLastN  = '';
 
 //funciones invocadas despues de cargado el html
 window.onload = function (){
@@ -22,34 +23,49 @@ window.onload = function (){
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
-    loop()
+    // loop();
     gettingVal();
     
 }
 
 //ciclo que obtiene cada elemento input y lo usa en la funcion checkbox
-function loop(){
-
+const loop = () =>{
     for(i=0; i < inputs.length; i++){
         
         arrayLoop.push(inputs[i]);
 
     }
+    
+    let inputFocus;
+    let inputFocusVal;
 
+    // style del focus
     for (i = 0; i < arrayLoop.length; i++) {
 
         arrayLoop[i].addEventListener("focus", function() {
-        // Guardamos la ID del elemento al que hacemos 'focus'
-        inputLastN = this;
-        inputLastN.className = 'focus';
-      
+            // Guardamos la ID del elemento al que hacemos 'focus'
+            inputFocus    = this;
+            // inputFocusVal = inputFocus.value.length;
+            inputFocus.className = 'focus'; 
+
+            // usar la condicion que mas se acomode a las validaciones... 
+            // if(inputFocusVal == 1){
+                
+            //     inputFocus.className = 'focus-alert';
+            //     console.log('el focus alert');
+
+            // }else{
+
+            //     inputFocus.className = 'focus'; 
+            //     console.log('el focus');
+
+            // }
+            // return console.log('retornando: ' + inputFocusVal);
         });
-        
+      
     };
     return arrayLoop;
 }
-
-
 
 //obtengo en un array el valor del atributo name de cada input para luego con un loop agregarlo al value de los input 
 function gettingVal(){
@@ -99,25 +115,24 @@ function cleaner(){
     inputLastN.value = ''; 
     
 }
-
+ 
 // funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
-const arrayInputs = () => {
+function arrayInputs () {
     //guardando datos en un array la idea es tenerlos para mostrarlos por si se necesita
-    let data        = [];
+    let data = [];
 
-    let inputsValue = inputs;
+    // let inputsValue = ;/* arrayLoop; */
 
     //pusheando el valor de cada elemento del formulario
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < arrayLoop.length; i++) {
 
-        data.push(inputsValue[i].value.trim());
+        data.push(arrayLoop[i].value.trim());
     
     }
-    data1 = data;
-    // arrayLength();
-    validator();
+    // data1 = data;
+    // validator();
 
-    return data1;
+    return data;
 }
 
 // validaciones de campos
@@ -135,6 +150,8 @@ function validator(){
         
         isValid = false;
         // aplicar ccs en un span para mostrar lo que hay en el console
+        dataName.className = 'focus-alert';
+        dataLN.className = 'focus-alert';
         console.log('nombre o apellido incorrecto');
 
     }else{
@@ -147,7 +164,7 @@ function validator(){
             // en vez de un alert aplicar estilos a los inputs y agregar un span como mensaje
             isvalid = false;
             alert('ingresa dos o mas caracteres');
-            // no lo ejecuta la primera vez
+        // no lo ejecuta la primera vez
             cleaner();
 
         }else{
@@ -158,7 +175,7 @@ function validator(){
             
                 isValid = false;
                 
-                // cambiar el alert por un span con stiloss
+                    // cambiar el alert por un span con stiloss
                 alert('solo letras de la a-z minusculas o mayusculas');
                 cleaner();
 
@@ -182,7 +199,6 @@ function validator(){
                     if(psw !== pswConfirm){
 
                         isvalid = false;
-                        
                         // cambiar el console por un span con stiloss
                         console.log('la confirmacion es incorrecta');
                         console.log(`${psw} ${pswConfirm} ' no son correctos' `);
@@ -198,7 +214,7 @@ function validator(){
                 }
         } 
     }
-    
+    // loopAlert()
 }
 
 // checkbox
@@ -230,7 +246,7 @@ function sending(){
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
     arrayInputs();
     // validator()
-    /* 
+        /* 
     if(validator()){
     } */
     // return console.table(`'valores obtenidos del formulario' \n ${lastValue}`)
