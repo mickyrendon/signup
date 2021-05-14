@@ -1,7 +1,6 @@
 // recordar que para acceder a la clase no se necesita el punto
 var inputs = document.getElementsByClassName('inputs-txt');
 var arrayLoop = [];
-var data = [];
 
 // estas variables obtienen su valor luego de invocar a la funcion arrayInputs()
 var data1;
@@ -117,11 +116,9 @@ function cleaner(){
 }
  
 // funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
-function arrayInputs () {
+const arrayInputs = () => {
     //guardando datos en un array la idea es tenerlos para mostrarlos por si se necesita
     let data = [];
-
-    // let inputsValue = ;/* arrayLoop; */
 
     //pusheando el valor de cada elemento del formulario
     for (let i = 0; i < arrayLoop.length; i++) {
@@ -129,20 +126,20 @@ function arrayInputs () {
         data.push(arrayLoop[i].value.trim());
     
     }
-    // data1 = data;
-    // validator();
 
     return data;
 }
 
 // validaciones de campos
 function validator(){
+    let data       = arrayInputs();
+    // arrayInputs();
     // nombre y apellido
-    let dataName   = data1[0];
-    let dataLN     = data1[1];
+    let dataName   = data[0];
+    let dataLN     = data[1];
     // contrasena
-    let psw        = data1[3];
-    let pswConfirm = data1[4];
+    let psw        = data[3];
+    let pswConfirm = data[4];
     // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en la base de datos,ya que estas validaciones no son suficientes// 
     // let dataEmail = data1[3];
 
