@@ -1,6 +1,7 @@
 // recordar que para acceder a la clase no se necesita el punto
 var inputs = document.getElementsByClassName('inputs-txt');
 var arrayLoop = [];
+var loop = loop();
 
 // estas variables obtienen su valor luego de invocar a la funcion arrayInputs()
 var data1;
@@ -22,13 +23,14 @@ window.onload = function (){
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
-    // loop();
+    // usando la variable loop para que solo se muestren los 5 valores que tiene y que no se aniadan mas valores al array, como lo hacia antes al llamar la funcion aca que al array de esta funcion se le sumaban cinco elementos mas cada vez que se llamaba
+    loop;
     gettingVal();
     
 }
 
 //ciclo que obtiene cada elemento input y lo usa en la funcion checkbox
-const loop = () =>{
+function loop (){
     for(i=0; i < inputs.length; i++){
         
         arrayLoop.push(inputs[i]);
@@ -144,6 +146,7 @@ function validator(){
     // let dataEmail = data1[3];
 
     if(!dataName || !dataLN){
+        // hacer que el style funcione... buscar como se accede a una funcion desde la consola
         
         isValid = false;
         // aplicar ccs en un span para mostrar lo que hay en el console

@@ -64,7 +64,7 @@ main{
     transition: outline-offset .25s ease;
     /* outline-offset: 5px; */
 }
-.focus-alert:invalid{
+.focus-alert:focus{ /* :invalid */
     border: 2px solid tomato;
     transition: outline-offset .25s ease;
     /* outline-offset: 5px; */
