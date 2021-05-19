@@ -12,6 +12,7 @@ var lastValue = [];
 var isValid  = false;
 // validador de caracteres alfabeticos (pattern)
 const alfa   = new RegExp('^[A-Z]+$', 'i');
+const beta   = new RegExp('.+@gmail.com');
 
 // variable para la funcion clear()
 // limpia el input que tiene focus en ese momento despues de clickear el spacebar...
@@ -45,7 +46,7 @@ function loop (){
 
         arrayLoop[i].addEventListener("focus", function() {
             // Guardamos la ID del elemento al que hacemos 'focus'
-            inputFocus    = this;
+            inputFocus           = this;
             // inputFocusVal = inputFocus.value.length;
             inputFocus.className = 'focus'; 
 
@@ -80,7 +81,7 @@ function gettingVal(){
     for(i=0; i<names.length; i++){
         inputs[i].placeholder = names[i];
         if(inputs[2]){
-            inputs[2].placeholder = `${'@'}${names[2]}`
+            inputs[2].placeholder = `${'@gmail.com'}`
         }
     }
 //   usar un 'then' para despues de que se use el cleaner en un input, volver a llamar esta funcion para que traiga los placeholder de cada elemento
@@ -135,25 +136,28 @@ const arrayInputs = () => {
 // validaciones de campos
 function validator(){
     let data       = arrayInputs();
-    // arrayInputs();
     // nombre y apellido
     let dataName   = data[0];
     let dataLN     = data[1];
+    // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en la base de datos,ya que estas validaciones no son suficientes// 
+    let dataEmail = data[2];
     // contrasena
     let psw        = data[3];
     let pswConfirm = data[4];
-    // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en la base de datos,ya que estas validaciones no son suficientes// 
-    // let dataEmail = data1[3];
 
     // accediendo a cada input text del form para aplicarles estilos
     let name          = document.getElementById('name');
     let lastName      = document.getElementById('last-name');
-    let user          = document.getElementById('user');
+    let user          = document.getElementById('username');
     let password      = document.getElementById('password');
     let confirm       = document.getElementById('confirmation');
 
     let spanFullName  = document.getElementById('name-lastn-alert');
+    let spanUser      = document.getElementById('span-username');
     let spanPassword  = document.getElementById('password-alert');
+
+    // variable para usar en el spanUser
+    const spanTxt = 'Puedes usar letras, numeros y signos de puntuacion';
 
     if(!dataName || !dataLN){
         
@@ -207,43 +211,62 @@ function validator(){
                 console.log('validado correctamente hasta el input usuario');
                 spanFullName.style.display = 'none';
 
-                // validador de contrasena
-                if(psw.length < 8 || pswConfirm.length < 8){
+                // validacion patern del email
+                if(!beta.test(dataEmail)){
 
-                    isValid                    = false;
+                    isValid            = false;
 
-                    password.className         = 'focus-alert';
-                    confirm.className          = 'focus-alert';
+                    user.className     = 'focus-alert';
 
-                    spanPassword.style.display = 'flex';
-                    spanPassword.innerHTML     = 'ingrese mas de 7 caracteres'
-                    cleaner();
+                    spanUser.innerHTML = 'solo cuentas de gmail';
+                    spanUser.className = 'alerts';
+                    spanUser.style.display = 'flex';
 
-                }else{
+                }else{ 
 
-                    console.log('validando correctamente hasta contrasena.length');
-                    spanFullName.style.display = 'none';
-                    
-                    if(psw !== pswConfirm){
+                    console.log('cuenta de usuario aprobada');
+                    spanUser.innerHTML = spanTxt;
+                    spanUser.className = '';
+                    spanUser.style.display = 'flex';
 
-                        isvalid                    = false;
+                    // validador de contrasena
+                    if(psw.length < 8 || pswConfirm.length < 8){
+
+                        isValid                    = false;
 
                         password.className         = 'focus-alert';
                         confirm.className          = 'focus-alert';
-                        
+
                         spanPassword.style.display = 'flex';
-                        spanPassword.innerHTML     = 'las contrasenas no coinciden';
+                        spanPassword.innerHTML     = 'ingrese mas de 7 caracteres'
+                        cleaner();
 
                     }else{
 
-                        isValid                    = true;
-                        spanPassword.style.display = 'none';
-                        console.log('validaciones aprobadas')
+                        console.log('validando correctamente hasta contrasena.length');
+                        spanFullName.style.display = 'none';
+                        
+                        if(psw !== pswConfirm){
 
-                    }
-                    
+                            isvalid                    = false;
+
+                            password.className         = 'focus-alert';
+                            confirm.className          = 'focus-alert';
+                            
+                            spanPassword.style.display = 'flex';
+                            spanPassword.innerHTML     = 'las contrasenas no coinciden';
+
+                        }else{
+
+                            isValid                    = true;
+                            spanPassword.style.display = 'none';
+                            console.log('validaciones aprobadas')
+
+                        }
+                        
                     }
                 }
+            }    
         } 
     }
     // loopAlert()
