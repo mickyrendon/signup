@@ -30,27 +30,27 @@
             <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off">
                 <!-- container para separar los inputs del submit y que permita a la variable de js solo seleccionar los hijos de este container -->
                 <div class="inputs-container" id="inputs-container">    
-                    <div class="flex-container">
+                    <div class="flex-container fullName-container" >
                         <label for="name">
                             <input type="text" id="name" class="inputs-txt" name="Nombre"  autofocus required>
                         </label>
                         <label for="last-name">
                             <input type="text" id="last-name" class="inputs-txt" name="Apellido" required>
                         </label>
-                        <span id="name-lastn-alert">
+                        <span id="name-lastn-alert" class="alerts">
                             alerta de nombre y apellido
                         </span>
                     </div>
 
-                    <div class="flex-container">
+                    <div class="flex-container email-container">
                         <label for="username">
-                            <input type="email" id="username" class="inputs-txt" name="Usuario" required list="suggest">
+                            <input type="email" id="username" class="inputs-txt" name="Usuario" value="@gmail.com" required list="suggest">
                         </label>
                         <datalist id="suggest">
-                            <option value="usuario@hotmail.com"></option>
+                            <option value="usuario@gmail.com"></option>
                             <option value="otrousuario@gmail.com"></option>
-                            <option value="esteusuario@yahoo.com"></option>
-                            <option value="proximousuario@outlook.com"></option>
+                            <option value="esteusuario@gmail.com"></option>
+                            <option value="proximousuario@gmail.com"></option>
                             <option value="ultimousuario@gmail.com"></option>
                         </datalist>
                         <span>
@@ -58,7 +58,7 @@
                         </span>
                     </div>
                     
-                    <div class="flex-container">
+                    <div class="flex-container password-container">
                         <label for="password">
                             <input type="password" id="password" class="inputs-txt" name="Contrasena" required>
                         </label>
@@ -69,6 +69,7 @@
                             <input type="checkbox" name="mostrarContrasena" id="checkbox">
                             <span>Mostrar Contrasena</span>
                         </label>
+                        <span id="password-alert" class="alerts"></span>
 
                     </div>
                 </div>

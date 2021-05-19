@@ -1,7 +1,7 @@
 // recordar que para acceder a la clase no se necesita el punto
 var inputs = document.getElementsByClassName('inputs-txt');
 var arrayLoop = [];
-var data = [];
+var loop = loop();
 
 // estas variables obtienen su valor luego de invocar a la funcion arrayInputs()
 var data1;
@@ -23,13 +23,14 @@ window.onload = function (){
     let checkbox = document.getElementById('checkbox');
         checkbox.addEventListener('change', checkboxCheck, false);
     
-    // loop();
+    // usando la variable loop para que solo se muestren los 5 valores que tiene y que no se aniadan mas valores al array, como lo hacia antes al llamar la funcion aca que al array de esta funcion se le sumaban cinco elementos mas cada vez que se llamaba
+    loop;
     gettingVal();
     
 }
 
 //ciclo que obtiene cada elemento input y lo usa en la funcion checkbox
-const loop = () =>{
+function loop (){
     for(i=0; i < inputs.length; i++){
         
         arrayLoop.push(inputs[i]);
@@ -117,11 +118,9 @@ function cleaner(){
 }
  
 // funcion para guardar los valores de cada input en un array para luego ser validados por la funcion validator()
-function arrayInputs () {
+const arrayInputs = () => {
     //guardando datos en un array la idea es tenerlos para mostrarlos por si se necesita
     let data = [];
-
-    // let inputsValue = ;/* arrayLoop; */
 
     //pusheando el valor de cada elemento del formulario
     for (let i = 0; i < arrayLoop.length; i++) {
@@ -129,84 +128,117 @@ function arrayInputs () {
         data.push(arrayLoop[i].value.trim());
     
     }
-    // data1 = data;
-    // validator();
 
     return data;
 }
 
 // validaciones de campos
 function validator(){
+    let data       = arrayInputs();
+    // arrayInputs();
     // nombre y apellido
-    let dataName   = data1[0];
-    let dataLN     = data1[1];
+    let dataName   = data[0];
+    let dataLN     = data[1];
     // contrasena
-    let psw        = data1[3];
-    let pswConfirm = data1[4];
+    let psw        = data[3];
+    let pswConfirm = data[4];
     // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en la base de datos,ya que estas validaciones no son suficientes// 
     // let dataEmail = data1[3];
 
+    // accediendo a cada input text del form para aplicarles estilos
+    let name          = document.getElementById('name');
+    let lastName      = document.getElementById('last-name');
+    let user          = document.getElementById('user');
+    let password      = document.getElementById('password');
+    let confirm       = document.getElementById('confirmation');
+
+    let spanFullName  = document.getElementById('name-lastn-alert');
+    let spanPassword  = document.getElementById('password-alert');
+
     if(!dataName || !dataLN){
         
-        isValid = false;
-        // aplicar ccs en un span para mostrar lo que hay en el console
-        dataName.className = 'focus-alert';
-        dataLN.className = 'focus-alert';
-        console.log('nombre o apellido incorrecto');
+        isValid                    = false; 
+
+        name.className             = 'focus-alert';
+        lastName.className         = 'focus-alert';
+
+        spanFullName.style.display = 'flex';
+        spanFullName.innerHTML     = 'nombre o apellido incorrecto';
 
     }else{
         // aplicar css en la caja cuando sea verdadero
         //inputs.styleClass = 'nombre dela clase con esos estilos'
-        console.log('data1 es true');
+        console.log('evaluando la cantidad de caracteres de nombre y apellido');
+        spanFullName.style.display = 'none';
+
 
         // validando la cantidad de caracteres ingresados en los dos primeros inputs
-        if(dataName.length <= 2 || dataLN.length <= 2){
-            // en vez de un alert aplicar estilos a los inputs y agregar un span como mensaje
-            isvalid = false;
-            alert('ingresa dos o mas caracteres');
+        if(dataName.length == 1 || dataLN.length == 1){
+
+            isvalid                    = false;
+            
+            name.className             = 'focus-alert';
+            lastName.className         = 'focus-alert';
+            
+            spanFullName.style.display = 'flex';
+            spanFullName.innerHTML     = 'ingresa dos o mas caracteres';
         // no lo ejecuta la primera vez
             cleaner();
 
         }else{
             
             console.log('bien hecho, ingresaste mas de dos caracteres');
+            spanFullName.style.display = 'none';
+
 
             if(!alfa.test(dataName) || !alfa.test(dataLN)){
             
-                isValid = false;
+                isValid                    = false;
+
+                name.className             = 'focus-alert';
+                lastName.className         = 'focus-alert';
                 
-                    // cambiar el alert por un span con stiloss
-                alert('solo letras de la a-z minusculas o mayusculas');
+                spanFullName.style.display = 'flex';
+                spanFullName.innerHTML     = 'solo letras de la a-z minusculas o mayusculas'
                 cleaner();
 
             }else{
                 
                 console.log('validado correctamente hasta el input usuario');
+                spanFullName.style.display = 'none';
 
                 // validador de contrasena
                 if(psw.length < 8 || pswConfirm.length < 8){
 
-                    isValid = false;
+                    isValid                    = false;
 
-                    // cambiar el alert por un span con stiloss
-                    alert('ingrese mas de 7 caracteres');
+                    password.className         = 'focus-alert';
+                    confirm.className          = 'focus-alert';
+
+                    spanPassword.style.display = 'flex';
+                    spanPassword.innerHTML     = 'ingrese mas de 7 caracteres'
                     cleaner();
 
                 }else{
 
                     console.log('validando correctamente hasta contrasena.length');
+                    spanFullName.style.display = 'none';
                     
                     if(psw !== pswConfirm){
 
-                        isvalid = false;
-                        // cambiar el console por un span con stiloss
-                        console.log('la confirmacion es incorrecta');
-                        console.log(`${psw} ${pswConfirm} ' no son correctos' `);
+                        isvalid                    = false;
+
+                        password.className         = 'focus-alert';
+                        confirm.className          = 'focus-alert';
+                        
+                        spanPassword.style.display = 'flex';
+                        spanPassword.innerHTML     = 'las contrasenas no coinciden';
 
                     }else{
 
-                        isValid = true;
-                        console.log('valores alfabeticos correctos y aceptados')
+                        isValid                    = true;
+                        spanPassword.style.display = 'none';
+                        console.log('validaciones aprobadas')
 
                     }
                     
