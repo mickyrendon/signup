@@ -145,68 +145,100 @@ function validator(){
     // el input 'email' viene con su validacion incluida ademas del atributo required y lo mas seguro es verificarlo en la base de datos,ya que estas validaciones no son suficientes// 
     // let dataEmail = data1[3];
 
+    // accediendo a cada input text del form para aplicarles estilos
+    let name          = document.getElementById('name');
+    let lastName      = document.getElementById('last-name');
+    let user          = document.getElementById('user');
+    let password      = document.getElementById('password');
+    let confirm       = document.getElementById('confirmation');
+
+    let spanFullName  = document.getElementById('name-lastn-alert');
+    let spanPassword  = document.getElementById('password-alert');
+
     if(!dataName || !dataLN){
-        // hacer que el style funcione... buscar como se accede a una funcion desde la consola
         
-        isValid = false;
-        // aplicar ccs en un span para mostrar lo que hay en el console
-        dataName.className = 'focus-alert';
-        dataLN.className = 'focus-alert';
-        console.log('nombre o apellido incorrecto');
+        isValid                    = false; 
+
+        name.className             = 'focus-alert';
+        lastName.className         = 'focus-alert';
+
+        spanFullName.style.display = 'flex';
+        spanFullName.innerHTML     = 'nombre o apellido incorrecto';
 
     }else{
         // aplicar css en la caja cuando sea verdadero
         //inputs.styleClass = 'nombre dela clase con esos estilos'
-        console.log('data1 es true');
+        console.log('evaluando la cantidad de caracteres de nombre y apellido');
+        spanFullName.style.display = 'none';
+
 
         // validando la cantidad de caracteres ingresados en los dos primeros inputs
-        if(dataName.length <= 2 || dataLN.length <= 2){
-            // en vez de un alert aplicar estilos a los inputs y agregar un span como mensaje
-            isvalid = false;
-            alert('ingresa dos o mas caracteres');
+        if(dataName.length == 1 || dataLN.length == 1){
+
+            isvalid                    = false;
+            
+            name.className             = 'focus-alert';
+            lastName.className         = 'focus-alert';
+            
+            spanFullName.style.display = 'flex';
+            spanFullName.innerHTML     = 'ingresa dos o mas caracteres';
         // no lo ejecuta la primera vez
             cleaner();
 
         }else{
             
             console.log('bien hecho, ingresaste mas de dos caracteres');
+            spanFullName.style.display = 'none';
+
 
             if(!alfa.test(dataName) || !alfa.test(dataLN)){
             
-                isValid = false;
+                isValid                    = false;
+
+                name.className             = 'focus-alert';
+                lastName.className         = 'focus-alert';
                 
-                    // cambiar el alert por un span con stiloss
-                alert('solo letras de la a-z minusculas o mayusculas');
+                spanFullName.style.display = 'flex';
+                spanFullName.innerHTML     = 'solo letras de la a-z minusculas o mayusculas'
                 cleaner();
 
             }else{
                 
                 console.log('validado correctamente hasta el input usuario');
+                spanFullName.style.display = 'none';
 
                 // validador de contrasena
                 if(psw.length < 8 || pswConfirm.length < 8){
 
-                    isValid = false;
+                    isValid                    = false;
 
-                    // cambiar el alert por un span con stiloss
-                    alert('ingrese mas de 7 caracteres');
+                    password.className         = 'focus-alert';
+                    confirm.className          = 'focus-alert';
+
+                    spanPassword.style.display = 'flex';
+                    spanPassword.innerHTML     = 'ingrese mas de 7 caracteres'
                     cleaner();
 
                 }else{
 
                     console.log('validando correctamente hasta contrasena.length');
+                    spanFullName.style.display = 'none';
                     
                     if(psw !== pswConfirm){
 
-                        isvalid = false;
-                        // cambiar el console por un span con stiloss
-                        console.log('la confirmacion es incorrecta');
-                        console.log(`${psw} ${pswConfirm} ' no son correctos' `);
+                        isvalid                    = false;
+
+                        password.className         = 'focus-alert';
+                        confirm.className          = 'focus-alert';
+                        
+                        spanPassword.style.display = 'flex';
+                        spanPassword.innerHTML     = 'las contrasenas no coinciden';
 
                     }else{
 
-                        isValid = true;
-                        console.log('valores alfabeticos correctos y aceptados')
+                        isValid                    = true;
+                        spanPassword.style.display = 'none';
+                        console.log('validaciones aprobadas')
 
                     }
                     
