@@ -21,10 +21,11 @@
 </head>
 <body onkeydown="onKeyDown(event)">
     <main>
-        <img src="./assets/gglelogo.png" alt="google-logo">
-        <h1>Crear tu cuenta de Google</h1>
-        <h3>Ir a Gmail</h3>
-
+        <div class="flex-container header-container" >
+            <img src="./assets/gglelogo.png" alt="google-logo" id="img-logo">
+            <h1>Crear tu cuenta de Google</h1>
+            <h3>Ir a Gmail</h3>
+        </div>
         <div class="inputs-containers">
                                     <!--url del servidor  -->
             <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off">
@@ -44,7 +45,7 @@
 
                     <div class="flex-container email-container">
                         <label for="username">
-                            <input type="email" id="username" class="inputs-txt" name="Usuario" value="@gmail.com" required list="suggest">
+                            <input type="email" id="username" class="inputs-txt" name="Usuario" required list="suggest">
                         </label>
                         <datalist id="suggest">
                             <option value="usuario@gmail.com"></option>
@@ -53,7 +54,7 @@
                             <option value="proximousuario@gmail.com"></option>
                             <option value="ultimousuario@gmail.com"></option>
                         </datalist>
-                        <span>
+                        <span id="span-username">
                             Puedes usar letras, numeros y signos de puntuacion
                         </span>
                     </div>
@@ -75,10 +76,10 @@
                 </div>
 
                 <div class="flex-container">
-                    <label for="submit">
+                    <label for="submit" class="label-submit">
                         <input type="submit" id="submit" value="Siguiente" ><!-- onclick="sending()" -->
                     </label>
-                    <a href="" title="vinculo a login"> 
+                    <a href="" title="vinculo a login" id="link-login"> 
                         Acceder a tu cuenta en su lugar
                     </a>
                 </div>
@@ -86,6 +87,16 @@
         </div>
     </main>
     <footer>
+        <div class="flex-container">
+            <span>
+                language
+            </span>
+        </div>
+        <div class="flex-container">
+            <a href="">ayuda</a>
+            <a href="">Privacidad</a>
+            <a href="">Condiciones</a>
+        </div>
     </footer>
 </body>
   <!-- js -->
