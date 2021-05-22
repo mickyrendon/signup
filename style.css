@@ -4,6 +4,8 @@
     box-sizing: border-box;
     font: 400 12px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     color: #202124;
+    text-decoration-line: none;
+
 }
 
 h1{
@@ -36,18 +38,18 @@ main{
     /* display: flex; */
     /* flex-flow: column nowrap;
     justify-content: center; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
-.inputs-containers{
+/* .inputs-containers{
    border: 1px solid black;
-}
+} */
 .flex-container{
     margin: 5px;
     padding: 5px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    border: 1px solid tomato;
+    /* border: 1px solid tomato; */
 }
 .header-container{
     display: block;
@@ -104,13 +106,37 @@ main{
     border-radius: 5px;
 }
 #link-login{
-    margin: 20px 0;
+    margin: 20px 0 60px;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-weight: 600;
     color: #1a73e8;
-    text-decoration-line: none;
 }
 
+
+ /*footer */
+ footer{
+    padding: 5px 0;
+    /* border: 1px solid black; */
+ }
+.langs-container{
+    display: block;
+    justify-content: flex-start;
+}
+.languages-menu{
+    padding: 5px;
+    width: 120px;
+}
+ .about-pg{
+     margin-top: 20px;
+     margin-bottom: 20px;
+     display: block;
+     justify-content: flex-start;
+     /* flex-flow: row nowrap; */
+ }
+ .about-pg a:nth-child(2){
+    margin: 0 10px;
+    /* color: red; */
+ }
 
 /* focus style */
 .focus:focus{
