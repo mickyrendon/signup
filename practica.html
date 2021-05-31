@@ -10,6 +10,8 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">                
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -55,32 +57,35 @@
                             <option value="proximousuario@gmail.com"></option>
                             <option value="ultimousuario@gmail.com"></option>
                         </datalist>
-                        <span id="span-username">
+                        <span id="span-username" class="span-email">
                             Puedes usar letras, numeros y signos de puntuacion
                         </span>
                     </div>
                     
                     <div class="flex-container password-container">
-                        <label for="password">
-                            <input type="password" id="password" class="inputs-txt" name="Contrasena" required>
-                        </label>
-                        <label for="confirmation">
-                            <input type="password" id="confirmation" class="inputs-txt" name="Confirmacion"   required>
-                        </label>
-                        <label for="checkbox" id="checkbox-container">
-                            <input type="checkbox" name="mostrarContrasena" id="checkbox">
-                            <span>Mostrar Contrasena</span>
-                        </label>
-                        <span id="password-alert" class="alerts"></span>
-
+                        <div class="password-inputs">
+                            <label for="password">
+                                <input type="password" id="password" class="inputs-txt" name="Contrasena" required>
+                            </label>
+                            <label for="confirmation">
+                                <input type="password" id="confirmation" class="inputs-txt" name="Confirmacion"   required>
+                            </label>
+                        </div> 
+                        <div class="checkbox-container">
+                            <label for="checkbox"  class="checkbox-container-id">
+                                <input type="checkbox" name="mostrarContrasena" id="checkbox">
+                                <span>Mostrar Contrasena</span>
+                            </label>
+                            <span id="password-alert" class="alerts"></span>
+                        </div>   
                     </div>
                 </div>
 
-                <div class="flex-container">
+                <div class="flex-container btn-container">
                     <label for="submit" class="label-submit">
-                        <input type="submit" id="submit" value="Siguiente" ><!-- onclick="sending()" -->
+                        <input type="submit" id="submit" value="Siguiente" onclick="sending()">
                     </label>
-                    <a href="" title="vinculo a login" id="link-login"> 
+                    <a href="" title="vinculo a login" id="link-login" class="link-login"> 
                         Acceder a tu cuenta en su lugar
                     </a>
                 </div>

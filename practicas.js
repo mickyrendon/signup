@@ -300,11 +300,8 @@ function checkboxCheck(){
 function sending(){
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
     arrayInputs();
-    // validator()
-        /* 
-    if(validator()){
-    } */
-    // return console.table(`'valores obtenidos del formulario' \n ${lastValue}`)
+    validator()
+  
     return console.table(lastValue)
 };
 

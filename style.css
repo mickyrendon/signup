@@ -32,7 +32,6 @@ input{
 main, footer{
     margin: 0 auto;
     padding: 10px;
-    max-width: auto;
     width: auto;
     height: auto;
     /* display: flex; */
@@ -40,9 +39,7 @@ main, footer{
     justify-content: center; */
     border: none;
 }
-/* .inputs-containers{
-   border: 1px solid black;
-} */
+
 .flex-container{
     margin: 5px;
     padding: 5px;
@@ -59,6 +56,10 @@ main, footer{
 #img-logo{
     max-width: 100px;
 }
+/* width del contenedor de contrasenas */
+.password-inputs{
+    width: 100%;
+}
 
 /*imagen de cuentas de google */
 .accounts-img-container{
@@ -71,7 +72,7 @@ main, footer{
     height: 300px;
 }
 /* contenedor del checkbox  y checkbox */
-#checkbox-container{
+.checkbox-container-id{
     width: 160px;
     height: 30px;
     display: flex;
@@ -109,7 +110,7 @@ main, footer{
     color: #fafafa;
     border-radius: 5px;
 }
-#link-login{
+.link-login{
     margin: 20px 0 60px;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-weight: 600;
@@ -179,11 +180,11 @@ main, footer{
     color: tomato;
     font-weight: bolder;
 }
-
-
-
-
-
+.btn-container a, figcaption{
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.0578em;
+    text-align: center;
+}
 
 
 /* ----------- iPhone X ----------- */
@@ -198,6 +199,9 @@ main, footer{
         max-width:400px;
         display:block;
         }
+    .accounts-img-container{
+        display: none;
+    }
 }
 
 /* Portrait */
@@ -220,19 +224,40 @@ main, footer{
 
 
 /* ----- laptop & tablet ------- */
+ /* ----------- Non-Retina Screens ----------- */
+ @media screen 
+ and (min-device-width: 1200px) 
+ and (max-device-width: 1600px) 
+ and (-webkit-min-device-pixel-ratio: 1) { 
+ }
+ 
+ /* ----------- Retina Screens ----------- */
+ @media screen 
+ and (min-device-width: 1200px) 
+ and (max-device-width: 1600px) 
+ and (-webkit-min-device-pixel-ratio: 2)
+ and (min-resolution: 192dpi) { 
+ }
 
 @media only screen
   and (min-device-width: 768px)
-  and (max-device-width: 1920px) {
+  and (max-device-width: 1920px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    body{
+        margin: 100px 20px;
+        /* max-width: 900px; */
+    }
     main, footer{
-        max-width: 60%;
-
+        margin: 0 auto;
+        max-width: 900px;
         display: flex;
     }
     main{
+        padding: 50px 25px;
+        /* height: 620px; */
         border: 1px solid rgba(0, 0, 0, 0.24);
         border-radius: 3%;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
     footer{
         justify-content: space-between;
@@ -243,4 +268,59 @@ main, footer{
         justify-content: center;
         /* background-color: red;    */
     } 
+    .inputs-txt{
+        height: 36px;
+    }
+    flex-container{
+        /* display: flex; */
+        flex-flow: row wrap;
+        /* align-items: flex-start; */
+        /* align-content: stretch; */
+    }
+    label{
+        width: 100%;
+    }
+   
+    .fullName-container, .password-inputs, .btn-container{
+        display: flex;
+        flex-flow: row nowrap;
+        /* border: 1px solid black; */
+     }
+     .fullName-container label:first-child, .password-inputs label:first-child{
+        margin-right: 10px;
+     }
+     .btn-container{
+         /* width: 100%; */
+         margin: 0;
+         flex-flow: row-reverse nowrap;
+     }
+     .checkbox-container{
+        width:100%;
+     }
+     .checkbox-container-id{
+        justify-content: flex-start;
+     }
+     .checkbox-container-id span{
+         margin-left: 10px;
+     }
+     .span-email{
+         width: 100%;
+     }
+
+
+
+     .link-login{
+        margin: 0;
+     }
+     .label-submit{
+         margin: 0;
+         width: 50%;
+         /* border: 1px solid tomato; */
+     }
+     /* .label-submit input{
+         width: ;
+     } */
+
   }
+
+ 
