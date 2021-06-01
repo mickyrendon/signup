@@ -256,7 +256,7 @@ main, footer{
         padding: 50px 25px;
         /* height: 620px; */
         border: 1px solid rgba(0, 0, 0, 0.24);
-        border-radius: 3%;
+        border-radius: 30px;
         justify-content: space-between;
     }
     footer{
