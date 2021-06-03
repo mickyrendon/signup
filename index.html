@@ -35,15 +35,19 @@
                 <!-- container para separar los inputs del submit y que permita a la variable de js solo seleccionar los hijos de este container -->
                 <div class="inputs-container" id="inputs-container">    
                     <div class="flex-container fullName-container" >
-                        <label for="name">
-                            <input type="text" id="name" class="inputs-txt" name="Nombre"  autofocus required>
-                        </label>
-                        <label for="last-name">
-                            <input type="text" id="last-name" class="inputs-txt" name="Apellido" required>
-                        </label>
-                        <span id="name-lastn-alert" class="alerts">
-                            alerta de nombre y apellido
-                        </span>
+                        <div class="name-lastn inline-inputs">
+                            <label for="name">
+                                <input type="text" id="name" class="inputs-txt" name="Nombre"  autofocus required>
+                            </label>
+                            <label for="last-name">
+                                <input type="text" id="last-name" class="inputs-txt" name="Apellido" required>
+                            </label>
+                        </div>
+                        <div class="span-container">
+                            <span id="name-lastn-alert" class="alerts">
+                                alerta de nombre y apellido
+                            </span>
+                        </div>
                     </div>
 
                     <div class="flex-container email-container">
@@ -57,33 +61,35 @@
                             <option value="proximousuario@gmail.com"></option>
                             <option value="ultimousuario@gmail.com"></option>
                         </datalist>
-                        <span id="span-username" class="span-email">
-                            Puedes usar letras, numeros y signos de puntuacion
-                        </span>
+                        <div class="span-container">
+                            <span id="span-username" class="span-email">
+                                Puedes usar letras, numeros y signos de puntuacion
+                            </span>
+                        </div>
                     </div>
                     
                     <div class="flex-container password-container">
-                        <div class="password-inputs">
+                        <div class="password-inputs inline-inputs">
                             <label for="password">
-                                <input type="password" id="password" class="inputs-txt" name="Contrasena" required>
+                                <input type="password" id="password" class="inputs-txt" name="Contraseña" required>
                             </label>
                             <label for="confirmation">
-                                <input type="password" id="confirmation" class="inputs-txt" name="Confirmacion"   required>
+                                <input type="password" id="confirmation" class="inputs-txt" name="Confirmación"   required>
                             </label>
                         </div> 
-                        <div class="checkbox-container">
+                        <div class="span-container">
+                            <span id="password-alert" class="alerts"></span>
                             <label for="checkbox"  class="checkbox-container-id">
                                 <input type="checkbox" name="mostrarContrasena" id="checkbox">
-                                <span>Mostrar Contrasena</span>
+                                <span>Mostrar Contraseña</span>
                             </label>
-                            <span id="password-alert" class="alerts"></span>
                         </div>   
                     </div>
                 </div>
 
                 <div class="flex-container btn-container">
                     <label for="submit" class="label-submit">
-                        <input type="submit" id="submit" value="Siguiente" onclick="sending()">
+                        <input type="submit" id="submit" value="Siguiente" ><!-- onclick="sending()" -->
                     </label>
                     <a href="" title="vinculo a login" id="link-login" class="link-login"> 
                         Acceder a tu cuenta en su lugar

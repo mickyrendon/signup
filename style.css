@@ -57,7 +57,8 @@ main, footer{
     max-width: 100px;
 }
 /* width del contenedor de contrasenas */
-.password-inputs{
+/* .password-inputs */
+.inline-inputs{
     width: 100%;
 }
 
@@ -281,9 +282,9 @@ main, footer{
         width: 100%;
     }
    
-    .fullName-container, .password-inputs, .btn-container{
+    .fullName-container, .inline-inputs, .password-inputs, .btn-container{
         display: flex;
-        flex-flow: row nowrap;
+        /* flex-flow: row nowrap; */
         /* border: 1px solid black; */
      }
      .fullName-container label:first-child, .password-inputs label:first-child{
@@ -294,10 +295,11 @@ main, footer{
          margin: 0;
          flex-flow: row-reverse nowrap;
      }
-     .checkbox-container{
+     .span-container{
         width:100%;
      }
      .checkbox-container-id{
+         margin-top: 10px;
         justify-content: flex-start;
      }
      .checkbox-container-id span{

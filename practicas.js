@@ -261,7 +261,6 @@ function validator(){
                             isValid                    = true;
                             spanPassword.style.display = 'none';
                             console.log('validaciones aprobadas')
-
                         }
                         
                     }
@@ -296,16 +295,26 @@ function checkboxCheck(){
     return this;
 }
 
+
 // submit onclik
 function sending(){
+   
     // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
     arrayInputs();
-    validator()
-  
+    // validator();
+    
+ 
     return console.table(lastValue)
 };
 
-
+// var validatorVar = validator();
+// if(validatorVar){
+//     alert('formulario invalido')
+//     validator()
+// }else{
+//     console.log('enviando form');
+   
+// }
 
 //FUNCION EXTRA!
 
