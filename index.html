@@ -31,7 +31,7 @@
                 <h3>Ir a Gmail</h3>
             </div>
                                     <!--url del servidor  -->
-            <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off">
+            <form  name="formulario" action="mi_servidor" method="POST" target="_blank" autocomplete="off" id="form">
                 <!-- container para separar los inputs del submit y que permita a la variable de js solo seleccionar los hijos de este container -->
                 <div class="inputs-container" id="inputs-container">    
                     <div class="flex-container fullName-container" >
@@ -89,7 +89,7 @@
 
                 <div class="flex-container btn-container">
                     <label for="submit" class="label-submit">
-                        <input type="submit" id="submit" value="Siguiente" ><!-- onclick="sending()" -->
+                        <input type="submit" id="submit" value="Siguiente" onclick=" validator(), sending()">
                     </label>
                     <a href="" title="vinculo a login" id="link-login" class="link-login"> 
                         Acceder a tu cuenta en su lugar

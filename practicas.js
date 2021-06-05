@@ -10,6 +10,9 @@ var lastValue = [];
 
 // validador booleano para la funcion validator()
 var isValid  = false;
+// constante para el elemento form, funcion sending
+var form = document.getElementById('form');
+
 // validador de caracteres alfabeticos (pattern)
 const alfa   = new RegExp('^[A-Z]+$', 'i');
 const beta   = new RegExp('.+@gmail.com');
@@ -268,7 +271,6 @@ function validator(){
             }    
         } 
     }
-    // loopAlert()
 }
 
 // checkbox
@@ -295,17 +297,19 @@ function checkboxCheck(){
     return this;
 }
 
+// lograr funcionar esto para que no se envie el formularo si el validator es falso
 
 // submit onclik
-function sending(){
-   
-    // codigo solo para probar que los datos del formulario se guardan en un array  y se muestran en un alert
-    arrayInputs();
-    // validator();
-    
- 
-    return console.table(lastValue)
+function notSending(event){
+        event.preventDefault();
 };
+function sending(){
+    if(validator){
+        form.addEventListener('submit', notSending);
+    }else{
+        console.log('enviando');
+    }
+}
 
 // var validatorVar = validator();
 // if(validatorVar){
